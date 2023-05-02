@@ -3,18 +3,32 @@
 
   <script>
     function loadWalineSuc(func) {
+      const locale = {
+        placeholder: '说点什么吧...',
+        link: '个人主页',
+        sofa: '还没有人说话！',
+        uploading: '在上传...',
+        nickError: '你的昵称不能少于3个字符！',
+        mailError: '你的邮件地址格式不正确！',
+        login: '登入',
+        logout: '登出',
+        submit: '提交！'
+      }
       func({
         el: '#waline-comments',
         path: location.pathname,
         serverURL: '<%- theme.comments.waline.serverURL %>',
-        emoji: false,
         dark: 'auto',
         requiredMeta: ['nick', 'mail'],
         wordLimit: 150,
         imageUploader: false,
         search: false,
         reaction: false,
-        pageSize: 30
+        pageSize: 30,
+        comment: true,
+        avatar: 'mp',
+        emoji: ['https://unpkg.com/@waline/emojis@1.1.0/bilibili', 'https://unpkg.com/@waline/emojis@1.1.0/alus'],
+        locale
       })
     }
   </script>
